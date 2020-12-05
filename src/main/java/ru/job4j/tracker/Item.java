@@ -1,8 +1,17 @@
 package ru.job4j.tracker;
 
+import java.time.LocalDateTime;
+
 public class Item {
     private int id;
     private String name;
+    private LocalDateTime created = LocalDateTime.now();
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
     public int getId() {
         return id;
     }
@@ -15,4 +24,5 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
+    public LocalDateTime getCreated() { return created; }
 }
