@@ -22,19 +22,10 @@ public class ShopDrop {
         }
     }
     public static Product[] leftShift(Product[] products, int index) {
-        Product temp;
-            if (index == products.length - 1) {
-                products[index] = null;
-            } else if (index != products.length - 1) {
-                products[index] = null;
-                for (int i = 0; i < products.length; i++) {
-                    if (index < i){
-                        temp = products[i];
-                        products[i] = products[index];
-                        products[index] = temp;
-                    }
+                for (int i = index; i < products.length - 1; i++) {
+                    products[i] = products[i + 1];
                 }
-            }
+                products[products.length - 1] = null;
         return products;
     }
 }
