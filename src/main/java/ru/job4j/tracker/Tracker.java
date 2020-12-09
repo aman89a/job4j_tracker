@@ -46,4 +46,9 @@ public class Tracker {
         }
             return Arrays.copyOf(itemsWithoutNull, temp);
     }
+    public void replace(int id, Item item) {
+        int index = indexOf(id);
+        items[index] = item;
+        items[index].setId(id);
+    }
 }
