@@ -23,7 +23,7 @@ public class StartUI {
         for (Item value : items) {
             System.out.println(value.getName());
         }
-        //Fink by Name
+        //Find by Name
         System.out.println();
         for(Item item:tracker.findByName("Develop a plan.")){
             System.out.println(item.getName());
