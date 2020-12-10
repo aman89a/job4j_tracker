@@ -13,10 +13,10 @@ public class StartUI {
         tracker.add(new Item("Take a plan."));
         tracker.add(new Item("Send a plan."));
         System.out.println(tracker.replace(2, new Item("bug")));
+        System.out.println(tracker.delete(2));
         //Find by Id
         System.out.println();
         System.out.println(tracker.findById(1).getName());
-        System.out.println(tracker.findById(2).getName());
         System.out.println(tracker.findById(3).getName());
         //Find by All
         System.out.println();
