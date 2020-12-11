@@ -48,13 +48,21 @@ public class StartUI {
                 System.out.println("=== Find item by Id ====");
                 System.out.print("Enter id: ");
                 int id = Integer.valueOf(scanner.nextLine());
-                System.out.println(tracker.findById(id).toString());
+                if (tracker.findById(id) == null){
+                    System.out.println("Item is null.");
+                } else {
+                    System.out.println(tracker.findById(id).toString());
+                }
             } else if (select == 5) {
                 System.out.println("=== Find items by name ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
-                for (Item item : tracker.findByName(name)) {
-                    System.out.println(item.toString());
+                if (tracker.findByName(name).length != 0) {
+                    for (Item item : tracker.findByName(name)) {
+                        System.out.println(item.toString());
+                    }
+                } else {
+                    System.out.println("No coincidences.");
                 }
             } else if (select == 6) {
                 run = false;
