@@ -6,26 +6,22 @@ public class Dendy {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int rsl = 11;
-        String value = "Player 1";
+        boolean change = true;
+        String value = null;
         while (rsl >= 1) {
-            System.out.println("player1 ");
-            int player1 = Integer.valueOf(input.nextLine());
-            if (player1 > 0 && player1 < 4) {
-                rsl = rsl - player1;
-                value = "Player-1";
+            value = change ? "player-1" : "player-2";
+            System.out.println(value);
+            int num = Integer.valueOf(input.nextLine());
+            if (change && num > 0 && num < 4) {
+                rsl -= num;
+                change = false;
+            } else if (!change && num > 0 && num < 4){
+                rsl -= num;
+                change = true;
             } else {
-                System.out.println("не правилный ввод данных");
-            }
-            System.out.println("player2 ");
-            int player2 = Integer.valueOf(input.nextLine());
-            if (player2 > 0 && player2 < 4) {
-                rsl = rsl - player2;
-                value = "Player-2";
-
-            } else {
-                System.out.println("не правилный ввод данных");
+                System.out.println("Input is wrong!");
             }
         }
-        System.out.println("Player " + value + " is win.");
+            System.out.println(value + " is win!");
     }
 }
