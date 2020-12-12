@@ -48,17 +48,19 @@ public class StartUI {
                 System.out.println("=== Find item by Id ====");
                 System.out.print("Enter id: ");
                 int id = Integer.valueOf(scanner.nextLine());
-                if (tracker.findById(id) == null){
+                Item value = tracker.findById(id);
+                if (value == null){
                     System.out.println("Item is null.");
                 } else {
-                    System.out.println(tracker.findById(id).toString());
+                    System.out.println(value.toString());
                 }
             } else if (select == 5) {
                 System.out.println("=== Find items by name ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
-                if (tracker.findByName(name).length != 0) {
-                    for (Item item : tracker.findByName(name)) {
+                Item[] items = tracker.findByName(name);
+                if (items.length != 0) {
+                    for (Item item : items) {
                         System.out.println(item.toString());
                     }
                 } else {
@@ -78,7 +80,6 @@ public class StartUI {
                 "4. Find item by Id\n" +
                 "5. Find items by name\n" +
                 "6. Exit Program");
-        /* добавить остальные пункты меню. */
     }
 
 
