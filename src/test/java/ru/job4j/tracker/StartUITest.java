@@ -74,4 +74,52 @@ import static org.junit.Assert.assertThat;
             new StartUI(out).init(in, tracker, actions);
             assertThat(tracker.findById(item.getId()), is(nullValue()));
         }
+        @Test
+        public void whenFindItem() {
+            Input in = new StubInput(
+                    new String[] {"0", "Item name", "1"}
+            );
+            Tracker tracker = new Tracker();
+            UserAction[] actions = {
+                    new CreateAction(out),
+                    new ExitAction(out)
+            };
+            new StartUI(out).init(in, tracker, actions);
+            assertThat(tracker.findAll()[0].getName(), is("Item name"));
+        }
+
+        @Test
+        public void whenFindItems() {
+            Input in = new StubInput(
+                    new String[] {"0", "Item name1", "1"}
+            );
+            Input in1 = new StubInput(
+                    new String[] {"0", "Item name2", "1"}
+            );
+            Tracker tracker = new Tracker();
+            UserAction[] actions = {
+                    new CreateAction(out),
+                    new ExitAction(out)
+            };
+            new StartUI(out).init(in, tracker, actions);
+            new StartUI(out).init(in1, tracker, actions);
+            assertThat(tracker.findAll()[0].toString(), is("Item{id=1, name='Item name1'}"));
+            assertThat(tracker.findAll()[1].toString(), is("Item{id=2, name='Item name2'}"));
+        }
+
+        @Test
+        public void whenFindByName() {
+            Input in = new StubInput(
+                    new String[] {"0", "Item name", "1"}
+            );
+            Tracker tracker = new Tracker();
+            UserAction[] actions = {
+                    new CreateAction(out),
+                    new ExitAction(out)
+            };
+            new StartUI(out).init(in, tracker, actions);
+            assertThat(tracker.findByName("Item name")[0].toString(), is("Item{id=1, name='Item name'}"));
+        }
+
+
     }
