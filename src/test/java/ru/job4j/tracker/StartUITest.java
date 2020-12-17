@@ -80,50 +80,54 @@ import static org.junit.Assert.assertThat;
         public void whenFindItem() {
             Output out = new StubOutput();
             Input in = new StubInput(
-                    new String[] {"0", "Item name", "1"}
+                    new String[] {"0", "Item name", "2"}
             );
             Tracker tracker = new Tracker();
             UserAction[] actions = {
                     new CreateAction(out),
+                    new ReadeItemAction(out),
                     new ExitAction(out)
             };
             new StartUI(out).init(in, tracker, actions);
-            assertThat(tracker.findById(1).toString(), is("Item{id=1, name='Item name'}"));
+            assertThat(out.toString(), is("Menu.\n0. Create\n" +
+                    "1. find by id.\n2. Exit\n=== Create a new Item ====\n" +
+                    "Menu.\n0. Create\n1. find by id.\n2. Exit\n"));
         }
 
         @Test
         public void whenFindItems() {
             Output out = new StubOutput();
             Input in = new StubInput(
-                    new String[] {"0", "Item name1", "1"}
-            );
-            Input in1 = new StubInput(
-                    new String[] {"0", "Item name2", "1"}
+                    new String[] {"0", "Item name1", "2"}
             );
             Tracker tracker = new Tracker();
             UserAction[] actions = {
                     new CreateAction(out),
+                    new ReadeItemsAction(out),
                     new ExitAction(out)
             };
             new StartUI(out).init(in, tracker, actions);
-            new StartUI(out).init(in1, tracker, actions);
-            assertThat(tracker.findAll()[0].toString(), is("Item{id=1, name='Item name1'}"));
-            assertThat(tracker.findAll()[1].toString(), is("Item{id=2, name='Item name2'}"));
+            assertThat(out.toString(), is("Menu.\n0. Create\n" +
+                    "1. find all Items\n2. Exit\n=== Create a new Item ====\n" +
+                    "Menu.\n0. Create\n1. find all Items\n2. Exit\n"));
         }
 
         @Test
         public void whenFindByName() {
             Output out = new StubOutput();
             Input in = new StubInput(
-                    new String[] {"0", "Item name", "1"}
+                    new String[] {"0", "Item name", "2"}
             );
             Tracker tracker = new Tracker();
             UserAction[] actions = {
                     new CreateAction(out),
+                    new FindAction(out),
                     new ExitAction(out)
             };
             new StartUI(out).init(in, tracker, actions);
-            assertThat(tracker.findByName("Item name")[0].toString(), is("Item{id=1, name='Item name'}"));
+            assertThat(out.toString(), is("Menu.\n0. Create\n" +
+                    "1. find by name\n2. Exit\n=== Create a new Item ====\n" +
+                    "Menu.\n0. Create\n1. find by name\n2. Exit\n"));
         }
 
 
