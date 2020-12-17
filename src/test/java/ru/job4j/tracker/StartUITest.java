@@ -7,7 +7,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
     public class StartUITest {
-        Output out = new StubOutput();
 
         @Test
         public void whenExit() {
@@ -28,6 +27,7 @@ import static org.junit.Assert.assertThat;
 
         @Test
         public void whenCreateItem() {
+            Output out = new StubOutput();
             Input in = new StubInput(
                     new String[] {"0", "Item name", "1"}
             );
@@ -42,6 +42,7 @@ import static org.junit.Assert.assertThat;
 
         @Test
         public void whenReplaceItem() {
+            Output out = new StubOutput();
             Tracker tracker = new Tracker();
             /* Добавим в tracker новую заявку */
             Item item = tracker.add(new Item("Replaced item"));
@@ -60,6 +61,7 @@ import static org.junit.Assert.assertThat;
 
         @Test
         public void whenDeleteItem() {
+            Output out = new StubOutput();
             Tracker tracker = new Tracker();
             /* Добавим в tracker новую заявку */
             Item item = tracker.add(new Item("Deleted item"));
@@ -76,6 +78,7 @@ import static org.junit.Assert.assertThat;
         }
         @Test
         public void whenFindItem() {
+            Output out = new StubOutput();
             Input in = new StubInput(
                     new String[] {"0", "Item name", "1"}
             );
@@ -85,11 +88,12 @@ import static org.junit.Assert.assertThat;
                     new ExitAction(out)
             };
             new StartUI(out).init(in, tracker, actions);
-            assertThat(tracker.findAll()[0].getName(), is("Item name"));
+            assertThat(tracker.findById(1).toString(), is("Item{id=1, name='Item name'}"));
         }
 
         @Test
         public void whenFindItems() {
+            Output out = new StubOutput();
             Input in = new StubInput(
                     new String[] {"0", "Item name1", "1"}
             );
@@ -109,6 +113,7 @@ import static org.junit.Assert.assertThat;
 
         @Test
         public void whenFindByName() {
+            Output out = new StubOutput();
             Input in = new StubInput(
                     new String[] {"0", "Item name", "1"}
             );
