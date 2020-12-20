@@ -9,9 +9,8 @@ public class UserStore {
                value = user;
                return value;
             }
-            throw new UserNotFoundException("User not found");
         }
-        return value;
+        throw new UserNotFoundException("User not found");
     }
 
     public static boolean validate(User user) throws UserInvalidException {
