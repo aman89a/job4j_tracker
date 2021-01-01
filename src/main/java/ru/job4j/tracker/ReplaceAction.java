@@ -18,6 +18,7 @@ public class ReplaceAction implements UserAction {
         int id = input.askInt("Enter id: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
+        item.setId(id);
         boolean rsl = tracker.replace(id, item);
         if (rsl) {
             out.println("The Item is edit.");
