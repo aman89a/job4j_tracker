@@ -8,7 +8,7 @@ import java.util.Map;
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
     public void addUser(User user) {
-            users.put(user, new ArrayList<Account>());
+            users.putIfAbsent(user, new ArrayList<Account>());
     }
 
     public void addAccount(String passport, Account account) {
@@ -37,7 +37,7 @@ public class BankService {
         if (user != null) {
             List<Account> accountList = users.get(user);
             for (Account account : accountList) {
-                if (account.getRequisite() == requisite) {
+                if (account.getRequisite().equals(requisite)) {
                         return account;
                 }
             }
