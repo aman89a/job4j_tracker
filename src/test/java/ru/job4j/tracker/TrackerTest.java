@@ -62,7 +62,7 @@ public class TrackerTest {
         expectedList.add(item3);
         expectedList.add(item1);
         expectedList.add(item2);
-        Collections.sort(expectedList);
+        Collections.sort(expectedList, new SortItemByAsc());
         assertThat(expectedList.toString(), is("[Item{id=1, name='fix Bugs'}, " +
                 "Item{id=2, name='clean laptop'}, Item{id=3, name='go train'}]"));
     }
@@ -80,7 +80,7 @@ public class TrackerTest {
         item3.setName("c");
         tracker.add(item3);
         List<Item> expectedList = tracker.findAll();
-        Collections.sort(expectedList, Collections.reverseOrder(new Item.SortItemByName()));
+        Collections.sort(expectedList, new SortItemByDesc());
         assertThat(expectedList.toString(), is("[Item{id=3, name='c'}," +
                 " Item{id=2, name='b'}, Item{id=1, name='a'}]"));
     }
