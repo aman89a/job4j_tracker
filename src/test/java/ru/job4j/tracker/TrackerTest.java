@@ -3,6 +3,7 @@ package ru.job4j.tracker;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -46,45 +47,41 @@ public class TrackerTest {
     }
 
     @Test
-    public void whenSortAscendingItem() {
+    public void whenSortAscItem() {
         Tracker tracker = new Tracker();
-        List<Item> expectedList = new ArrayList<Item>();
+        List<Item> expectedList = new ArrayList<>();
         Item item1 = new Item();
-        item1.setName("test1");
+        item1.setName("fix Bugs");
         tracker.add(item1);
         Item item2 = new Item();
-        item2.setName("test2");
+        item2.setName("clean laptop");
         tracker.add(item2);
         Item item3 = new Item();
-        item3.setName("test3");
+        item3.setName("go train");
         tracker.add(item3);
         expectedList.add(item3);
         expectedList.add(item1);
         expectedList.add(item2);
-        List<Item> itemList = tracker.findAll();
         Collections.sort(expectedList);
-        assertThat(itemList, is(expectedList));
+        assertThat(expectedList.toString(), is("[Item{id=1, name='fix Bugs'}, " +
+                "Item{id=2, name='clean laptop'}, Item{id=3, name='go train'}]"));
     }
 
     @Test
-    public void whenSortDescendingItem() {
+    public void whenSortDescItemByName() {
         Tracker tracker = new Tracker();
-        List<Item> expectedList = new ArrayList<Item>();
-        Item item3 = new Item();
-        item3.setName("test3");
-        tracker.add(item3);
-        Item item2 = new Item();
-        item2.setName("test2");
-        tracker.add(item2);
         Item item1 = new Item();
-        item1.setName("test1");
+        item1.setName("a");
         tracker.add(item1);
-        expectedList.add(item1);
-        expectedList.add(item2);
-        expectedList.add(item3);
-        List<Item> itemList = tracker.findAll();
-        expectedList.sort(new SortByNameItem());
-        assertThat(expectedList.toString(), is("[Item{id=3, name='test1'}, " +
-                "Item{id=2, name='test2'}, Item{id=1, name='test3'}]"));
+        Item item2 = new Item();
+        item2.setName("b");
+        tracker.add(item2);
+        Item item3 = new Item();
+        item3.setName("c");
+        tracker.add(item3);
+        List<Item> expectedList = tracker.findAll();
+        Collections.sort(expectedList, Collections.reverseOrder(new Item.SortItemByName()));
+        assertThat(expectedList.toString(), is("[Item{id=3, name='c'}," +
+                " Item{id=2, name='b'}, Item{id=1, name='a'}]"));
     }
 }

@@ -56,4 +56,11 @@ public class Item implements Comparable<Item>{
     public int compareTo(Item another) {
         return Integer.compare(id, another.id);
     }
+
+    public static class SortItemByName implements Comparator<Item> {
+        @Override
+        public int compare(Item firstItem, Item secondItem) {
+            return firstItem.getName().compareTo(secondItem.getName());
+        }
+    }
 }
