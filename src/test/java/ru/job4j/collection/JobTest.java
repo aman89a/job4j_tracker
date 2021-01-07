@@ -15,7 +15,8 @@ public class JobTest {
                 new Job("Impl task", 0),
                 new Job("Fix bug", 1)
         );
-        assertThat(rsl, lessThan(4));
+        System.out.println(rsl);
+        assertThat(rsl, lessThan(0));
     }
 
     @Test
@@ -25,8 +26,7 @@ public class JobTest {
                 new Job("Impl task", 0),
                 new Job("Fix bug", 1)
         );
-        System.out.println(rsl);
-        assertThat(rsl, lessThan(4));
+        assertThat(rsl, greaterThan(0));
     }
 
     @Test
