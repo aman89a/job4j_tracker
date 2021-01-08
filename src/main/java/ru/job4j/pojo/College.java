@@ -6,7 +6,9 @@ public class College {
         student.setFio("Ivan Ivanov");
         student.setGroup("It-A2020");
         student.getCreated();
-
-        System.out.println("FIO: " + student.getFio()+ System.lineSeparator() + "Group: " + student.getGroup() + System.lineSeparator() + "Created date: " + student.getCreated());
+        System.out.println("FIO: " + student.getFio()
+                + System.lineSeparator() + "Group: "
+                + student.getGroup() + System.lineSeparator()
+                + "Created date: " + student.getCreated());
     }
 }

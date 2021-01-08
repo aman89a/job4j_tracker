@@ -8,14 +8,15 @@ import static org.junit.Assert.*;
 public class PassportOfficeTest {
 
     @Test
-    public void WhenAddNew() {
+    public void whenAddNew() {
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
         PassportOffice office = new PassportOffice();
         office.add(citizen);
         assertThat(office.get(citizen.getPassport()), is(citizen));
     }
+
     @Test
-    public void WhenTryAdd() {
+    public void whenTryAdd() {
         Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
         PassportOffice office = new PassportOffice();
         office.add(citizen);

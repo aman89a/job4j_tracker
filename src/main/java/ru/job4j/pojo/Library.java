@@ -11,7 +11,7 @@ public class Library {
         books[1] = headFirst;
         books[2] = javaForJava;
         books[3] = linuxMint;
-        for (int i = 0; i < books.length; i++){
+        for (int i = 0; i < books.length; i++) {
             Book book = books[i];
             System.out.println(book.getName() + " " + book.getPage());
         }
@@ -19,7 +19,7 @@ public class Library {
         books[0] = books[3];
         books[3] = temp;
         System.out.println();
-        for (int i = 0; i < books.length; i++){
+        for (int i = 0; i < books.length; i++) {
             Book book = books[i];
             System.out.println(book.getName() + " " + book.getPage());
         }

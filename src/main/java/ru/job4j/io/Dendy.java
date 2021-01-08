@@ -15,7 +15,7 @@ public class Dendy {
             if (change && num > 0 && num < 4) {
                 rsl -= num;
                 change = false;
-            } else if (!change && num > 0 && num < 4){
+            } else if (!change && num > 0 && num < 4) {
                 rsl -= num;
                 change = true;
             } else {

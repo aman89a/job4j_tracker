@@ -1,9 +1,11 @@
 package ru.job4j.tracker;
 
 public class TrackerSingle4 {
+
+    private Tracker tracker;
+
     private TrackerSingle4() {
     }
-    private Tracker tracker;
 
     public Tracker getTracker() {
         return tracker;

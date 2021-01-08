@@ -4,7 +4,7 @@ public class ReadeItemAction implements UserAction {
     private final Output out;
 
     public ReadeItemAction(Output out) {
-        this.out= out;
+        this.out = out;
     }
 
     @Override
@@ -17,7 +17,7 @@ public class ReadeItemAction implements UserAction {
         out.println("=== Find by id. ====");
         int id = input.askInt("Enter id: ");
         Item value = tracker.findById(id);
-        if (value == null){
+        if (value == null) {
             out.println("Item is null.");
         } else {
             out.println(value.toString());

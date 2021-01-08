@@ -7,7 +7,6 @@ import java.util.Collections;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-
     public class LexSortTest {
         @Test
         public void sortNum1and2and10() {

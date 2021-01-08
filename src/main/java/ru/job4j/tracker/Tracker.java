@@ -17,6 +17,7 @@ public class Tracker {
         }
         return rsl;
     }
+
     public Item add(Item item) {
         item.setId(ids++);
         items.add(item);
@@ -36,7 +37,7 @@ public class Tracker {
         return items;
     }
 
-    public List<Item> findByName(String key){
+    public List<Item> findByName(String key) {
         List<Item> namesList = new ArrayList<>();
         for (Item item : items) {
             if (item.getName().equals(key)) {
@@ -46,6 +47,7 @@ public class Tracker {
         }
         return null;
     }
+
     public boolean replace(int id, Item item) {
         if (items.contains(findById(id))) {
             items.set(indexOf(id), item);
@@ -60,9 +62,9 @@ public class Tracker {
 
     @Override
     public String toString() {
-        return "Tracker{" +
-                "items=" + items +
-                ", ids=" + ids +
-                '}';
+        return "Tracker{"
+               + "items=" + items
+               + ", ids=" + ids
+               + '}';
     }
 }

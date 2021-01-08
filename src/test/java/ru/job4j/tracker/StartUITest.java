@@ -22,8 +22,8 @@ import static org.junit.Assert.assertThat;
             actionList.add(new ExitAction(out));
             new StartUI(out).init(in, tracker, actionList);
             assertThat(out.toString(), is(
-                    "Menu." + System.lineSeparator() +
-                            "0. Exit" + System.lineSeparator()
+                    "Menu." + System.lineSeparator()
+                            + "0. Exit" + System.lineSeparator()
             ));
         }
 
@@ -75,6 +75,7 @@ import static org.junit.Assert.assertThat;
             new StartUI(out).init(in, tracker, actionList);
             assertThat(tracker.findById(item.getId()), is(nullValue()));
         }
+
         @Test
         public void whenFindItem() {
             Output out = new StubOutput();
@@ -87,9 +88,9 @@ import static org.junit.Assert.assertThat;
                     actionList.add(new ReadeItemAction(out));
                     actionList.add(new ExitAction(out));
             new StartUI(out).init(in, tracker, actionList);
-            assertThat(out.toString(), is("Menu.\n0. Create\n" +
-                    "1. find by id.\n2. Exit\n=== Create a new Item ====\n" +
-                    "Menu.\n0. Create\n1. find by id.\n2. Exit\n"));
+            assertThat(out.toString(), is("Menu.\n0. Create\n"
+                    + "1. find by id.\n2. Exit\n=== Create a new Item ====\n"
+                    + "Menu.\n0. Create\n1. find by id.\n2. Exit\n"));
         }
 
         @Test
@@ -105,9 +106,9 @@ import static org.junit.Assert.assertThat;
                     actionList.add(new ReadeItemsAction(out));
                     actionList.add(new ExitAction(out));
             new StartUI(out).init(in, tracker, actionList);
-            assertThat(out.toString(), is("Menu.\n0. Create\n" +
-                    "1. find all Items\n2. Exit\n=== Create a new Item ====\n" +
-                    "Menu.\n0. Create\n1. find all Items\n2. Exit\n"));
+            assertThat(out.toString(), is("Menu.\n0. Create\n"
+                    + "1. find all Items\n2. Exit\n=== Create a new Item ====\n"
+                    + "Menu.\n0. Create\n1. find all Items\n2. Exit\n"));
         }
 
         @Test
@@ -122,9 +123,9 @@ import static org.junit.Assert.assertThat;
                     actionList.add(new FindAction(out));
                     actionList.add(new ExitAction(out));
             new StartUI(out).init(in, tracker, actionList);
-            assertThat(out.toString(), is("Menu.\n0. Create\n" +
-                    "1. find by name\n2. Exit\n=== Create a new Item ====\n" +
-                    "Menu.\n0. Create\n1. find by name\n2. Exit\n"));
+            assertThat(out.toString(), is("Menu.\n0. Create\n"
+                    + "1. find by name\n2. Exit\n=== Create a new Item ====\n"
+                    + "Menu.\n0. Create\n1. find by name\n2. Exit\n"));
         }
 
         @Test
